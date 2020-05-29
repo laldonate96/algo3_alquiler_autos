@@ -1,14 +1,16 @@
 # Alquiler de autos (abreviado)
 
-Se pretende desarrollar una aplicación que permita calcular los precios de alquiler de una empresa de alquiler de vehículos. Cada vehículo se identifica unívocamente por medio de su patente.
+Se pretende desarrollar una aplicación que permita calcular los precios de alquiler de una empresa de alquiler de vehículos. 
+Cada vehículo se identifica unívocamente por medio de su patente.
 
 
-La empresa alquila a sus clientes distintos tipos de vehículos, tanto para transporte de personas como de carga. En la actualidad los vehículos alquilados por la empresa son coches, microbuses, furgoneta de carga y camiones.
+La empresa alquila a sus clientes distintos tipos de vehículos, tanto para transporte de personas como de carga. 
+En la actualidad los vehículos alquilados por la empresa son coches, microbuses, furgoneta de carga y camiones.
 
 
 El precio del alquiler de cualquier vehículo tiene un componente base que depende los días de alquiler a razón de $500 por día.
 
-1. Si el coche pertenece a una categoría premium (BMW, AUDI modelos superiores al 2016) el precio de las plazas es de $150.
+1. Si el coche pertenece a una categoría premium (BMW, AUDI modelos superiores al 2016) el precio de las plazas es de $150 sino $100.
 2. Para los vehículos de carga  se cobra el precio base más  $300 * PMA (PMA = peso máximo autorizado en toneladas).
 
 Se pide calcular el valor de alquiler para los siguientes casos:

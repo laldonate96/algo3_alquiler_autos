@@ -1,0 +1,40 @@
+@startuml
+skinparam classAttributeIconSize 0
+
+interface Vehiculo
+Vehiculo : alquilarPor(cantidadDias Integer)
+
+class Camion {
+    - pma Integer
+}
+Vehiculo <|.. Camion
+Camion : alquilarPor(cantidadDias Integer)
+
+together {
+        class BMW
+        interface Modelo
+}
+
+Vehiculo <|.. BMW
+
+BMW : alquilarPor(cantidadDias Integer)
+BMW *- Modelo
+
+interface Modelo
+Modelo : alquilerPorPlazas(cantidadDias Integer)
+
+class ModeloViejo {
+    - modelo integer
+    - plazas Integer
+}
+Modelo <|.. ModeloViejo
+ModeloViejo : alquilerPorPlazas(cantidadDias Integer)
+
+class ModeloNuevo {
+    - modelo integer
+    - plazas Integer
+}
+Modelo <|.. ModeloNuevo
+ModeloNuevo : alquilerPorPlazas (cantidadDias Integer)
+
+@enduml

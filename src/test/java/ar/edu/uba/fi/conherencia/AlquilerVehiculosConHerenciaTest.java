@@ -1,7 +1,5 @@
-package ar.edu.uba.fi;
+package ar.edu.uba.fi.conherencia;
 
-
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -9,11 +7,10 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 /**
  * Unit test for simple App.
  */
-public class AlquilerVehiculosTest
-{
+public class AlquilerVehiculosConHerenciaTest {
     @Test
     public void unClienteAlquilaUnBMWConCincoPlazasModelo2018DuranteDosDias() {
-        BMW auto = new BMW(new Patente("ABC", 123), 2018, 5);
+        BMW auto = new BMW(2018, 5);
 
         Double valor = auto.alquilarPor(2);
 
@@ -21,11 +18,21 @@ public class AlquilerVehiculosTest
     }
 
     @Test
+    public void unClienteAlquilaUnBMWConCincoPlazasModelo2015DuranteDosDias() {
+        BMW auto = new BMW(2015, 5);
+
+        Double valor = auto.alquilarPor(2);
+
+        assertEquals((500 * 2) + (100 * 5), valor);
+    }
+
+    @Test
     public void unClienteAlquilaUnCamionConPMAMilUnosDiezDias() {
-        Camion vehiculo = new Camion(new Patente("ABC", 123), 1000);
+        Camion vehiculo = new Camion(1000);
 
         Double valor = vehiculo.alquilarPor(10);
 
         assertEquals((500 + (300 * 1000)) * 10, valor);
     }
+
 }

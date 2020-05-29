@@ -1,24 +1,24 @@
-package ar.edu.uba.fi;
+package ar.edu.uba.fi.conherencia;
 
-public class Camion {
-    private Patente patente;
+public class Camion implements Vehiculo {
     private int PMA;
 
-    public Camion(Patente patente, int PMA) {
-
-        this.patente = patente;
+    public Camion(int PMA) {
         this.PMA = PMA;
     }
 
     public Double alquilarPor(int cantidadDias) {
+
         return base(cantidadDias) + pma(cantidadDias);
     }
 
     private Double pma(int cantidadDias) {
+
         return 300.0 * 1000 * cantidadDias;
     }
 
     private Double base(int cantidadDias) {
+
         return 500.0 * cantidadDias;
     }
 }
