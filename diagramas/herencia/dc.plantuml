@@ -1,0 +1,48 @@
+@startuml
+
+class Agencia {
+
+        + registrar(Vehiculo)
+        + alquiarDias(unaPatente, unosDias)
+}
+
+abstract class  Vehiculo {
+        + sos(Patente)
+        + {abstract} alquilarDias(unosDias)
+}
+
+class Auto {
+        - modelo
+
+        + patente(Patente)
+        + sos(Patente)
+        + alquilarDias(unosDias)
+}
+
+class Camion {
+        - pma
+
+        + patente(Patente)
+        + sos(Patente)
+        + alquilarDias(unosDias)
+}
+
+class Bus {
+        + sos(Patente)
+        + alquilarDias(unosDias)
+}
+
+class Patente {
+        - valor
+
+        + equals(otraPatente)
+}
+
+Vehiculo *- Patente
+
+Agencia o- "0..*" Vehiculo
+
+Vehiculo <|-- Auto
+Vehiculo <|-- Camion
+Vehiculo <|-- Bus
+@enduml
