@@ -1,0 +1,35 @@
+@startuml
+
+title Agencia e Iteraciones en lista Vehiculos
+
+Actor Desarrollador
+
+Desarrollador -> ":TestCase": run
+create "a: Agencia"
+":TestCase" -> "a: Agencia": Agencia()
+
+":TestCase" -> "a: Agencia": registrar(vehiculo)
+
+"a: Agencia" -> "a: Agencia": encontrar(vehiculo)
+activate "a: Agencia"
+loop Para cada vehiculo
+    "a: Agencia" -> ":Vehiculo": sos(auto)
+end
+deactivate "a: Agencia"
+
+":TestCase" -> "a: Agencia": alquilarDias("abc-123", 2)
+
+"a: Agencia" -> "a: Agencia": encontrar("abc-123")
+activate "a: Agencia"
+loop Para cada vehiculo
+    "a: Agencia" -> ":Vehiculo": sos("abc-123")
+end
+deactivate "a: Agencia"
+
+"a: Agencia" -> ":Vehiculo": alquiler(2)
+":Vehiculo" --> "a: Agencia": [valor]
+
+":TestCase" <-- "a: Agencia": [valor]
+
+
+@enduml

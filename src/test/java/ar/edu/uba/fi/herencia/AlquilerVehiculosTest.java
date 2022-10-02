@@ -13,10 +13,20 @@ public class AlquilerVehiculosTest
     public void testRegistroCherryQQElCostoDeAlquilerPor1DiaEs900() {
         Agencia a = new Agencia();
 
-        a.registrar( new Auto("abc-123", "Cherry QQ"));
+        a.registrar( new Auto("abc-123", 4, new PlazaBasica() ));
         double valor = a.alquilarDias("abc-123", 1);
 
-        assertEquals(valor, 900);
+        assertEquals(900, valor);
+    }
+
+    @Test
+    public void testRegistroBMWElCostoDeAlquilerPor5DiaEsX() {
+        Agencia a = new Agencia();
+
+        a.registrar( new Auto("abc-123", 4, new PlazaPremium() ));
+        double valor = a.alquilarDias("abc-123", 5);
+
+        assertEquals(3100, valor);
     }
 
     @Test
@@ -26,7 +36,7 @@ public class AlquilerVehiculosTest
         a.registrar( new Camion("abc-123", 5));
         double valor = a.alquilarDias("abc-123", 1);
 
-        assertEquals(valor, 2000);
+        assertEquals(2000, valor);
 
     }
 

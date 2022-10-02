@@ -10,6 +10,7 @@ public class Bus implements Vehiculo {
 
     @Override
     public boolean sos(String unaPatenteStr) {
+
         return this.unaPatenteStr.equals(unaPatenteStr);
     }
 

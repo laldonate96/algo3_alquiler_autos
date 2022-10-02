@@ -1,0 +1,44 @@
+@startuml
+
+title testRegistroCherryQQElCostoDeAlquilerPor1DiaEs900
+
+Actor Desarrollador
+
+Desarrollador -> ":TestCase": run
+create "a: Agencia"
+":TestCase" -> "a: Agencia": Agencia()
+
+create "p: PlazasBasica"
+":TestCase" -> "p: PlazasBasica": PlazaBasica()
+
+create "auto :Auto"
+":TestCase" -> "auto :Auto": Auto(patente, 4, p)
+
+":TestCase" -> "a: Agencia": registrar(auto)
+
+"a: Agencia" -> "a: Agencia": encontrar(auto)
+activate "a: Agencia"
+loop Para cada vehiculo
+    "a: Agencia" -> ":Auto": sos(auto)
+end
+deactivate "a: Agencia"
+
+":TestCase" -> "a: Agencia": alquilarDias("abc-123", 2)
+
+"a: Agencia" -> "a: Agencia": encontrar("abc-123")
+activate "a: Agencia"
+loop Para cada vehiculo
+    "a: Agencia" -> ":Auto": sos("abc-123")
+end
+deactivate "a: Agencia"
+
+"a: Agencia" -> "auto :Auto": alquiler(2)
+"auto :Auto" -> "p: PlazasBasica": alquiler(4)
+
+"p: PlazasBasica" --> "auto :Auto": "<valor>"
+'
+"auto :Auto" -> "auto :Auto": costoBase()
+"auto :Auto" --> ":TestCase": "costoBase + valor"
+
+
+@enduml

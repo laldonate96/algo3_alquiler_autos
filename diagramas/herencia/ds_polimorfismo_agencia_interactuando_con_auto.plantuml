@@ -1,0 +1,12 @@
+@startuml
+
+title Agencia interactuando con Auto
+
+"a: Agencia" -> ":Auto": alquiler(2)
+":Auto" -> "p: PlazasBasica": alquiler(4)
+
+"p: PlazasBasica" --> ":Auto": [valor]
+"a: Agencia" <-- ":Auto": [valor]
+
+
+@enduml

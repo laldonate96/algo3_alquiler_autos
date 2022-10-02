@@ -11,6 +11,7 @@ public class Camion implements Vehiculo {
 
     @Override
     public boolean sos(String unaPatenteStr) {
+
         return unaPatenteStr.equals(unaPatenteStr);
     }
 

@@ -1,17 +1,19 @@
 package ar.edu.uba.fi.herencia;
 
 public class Auto extends Vehiculo {
-    private String unModeloStr;
+    private Integer numeroPlazas;
+    private TipoPlaza tipoPlazas;
 
-    public Auto(String unPatenteStr, String unModeloStr) {
+    public Auto(String unPatenteStr, Integer numeroPlazas, TipoPlaza tipoPlazas) {
 
         super(unPatenteStr);
-        this.unModeloStr = unModeloStr;
+        this.numeroPlazas = numeroPlazas;
+        this.tipoPlazas = tipoPlazas;
     }
 
     public double alquilar(int unosDias) {
 
-        return precioBase(unosDias) + (4 * 100);
+        return precioBase(unosDias) + tipoPlazas.alquilar(numeroPlazas);
     }
 
     private double precioBase(int unosDias) {

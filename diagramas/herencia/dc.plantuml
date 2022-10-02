@@ -1,4 +1,4 @@
-@startuml
+ @startuml
 
 class Agencia {
 
@@ -11,6 +11,22 @@ abstract class  Vehiculo {
         + {abstract} alquilarDias(unosDias)
 }
 
+class TipoPlaza {
+    - int precioPlaza
+
+    + TipoPlaza(int precioPlaza)
+    + alquilar(Integer numeroPlazas) : double
+}
+
+class PlazaBasica {
+
+    + PlazaBasica(int precioPlaza)
+}
+
+class PlazaPremium {
+
+    + PlazaPremium(int precioPlaza)
+}
 class Auto {
         - modelo
 
@@ -45,4 +61,9 @@ Agencia o- "0..*" Vehiculo
 Vehiculo <|-- Auto
 Vehiculo <|-- Camion
 Vehiculo <|-- Bus
+
+Auto *-- TipoPlaza
+
+TipoPlaza <|-- PlazaPremium
+TipoPlaza <|-- PlazaBasica
 @enduml

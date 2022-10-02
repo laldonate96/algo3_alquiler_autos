@@ -1,0 +1,12 @@
+@startuml
+
+title Agencia interactuando con Camion
+
+"a: Agencia" -> ":Camion": alquiler(2)
+
+":Camion" -> ":Camion": precioBase()
+":Camion" -> ":Camion": precioPma()
+
+":Camion" --> "a: Agencia": [precioBase + precioPMA]
+
+@enduml

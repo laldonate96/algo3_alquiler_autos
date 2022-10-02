@@ -10,8 +10,13 @@ public abstract class Vehiculo {
     }
 
     boolean sos(String unaPatenteStr) {
+
         return unaPatenteStr.equals(unaPatenteStr);
     };
 
     abstract double alquilar(int unosDias);
+
+    public boolean sos(Vehiculo vehiculo) {
+        return this.unaPatenteStr.equals(vehiculo.unaPatenteStr);
+    }
 }

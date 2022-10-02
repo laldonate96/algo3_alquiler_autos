@@ -11,16 +11,22 @@ public class Agencia {
 
     }
     public void registrar(Vehiculo vehiculo) {
+        Vehiculo v = this.encontrarVehiculo( vehiculo );
+
+        if ( v != null) {
+            throw new VehiculoDuplicado();
+        }
         vehiculos.add(vehiculo);
+
     }
 
     public double alquilarDias(String unaPatenteStr, int unosDias) {
-        Vehiculo v = this.buscarVehiculo( unaPatenteStr );
+        Vehiculo v = this.encontrarVehiculo( unaPatenteStr );
 
         return v.alquilar(unosDias);
     }
 
-    private Vehiculo buscarVehiculo(String unaPatenteStr) {
+    private Vehiculo encontrarVehiculo(String unaPatenteStr) {
         for(Vehiculo v : vehiculos) {
             if ( v.sos(unaPatenteStr) ) {
                 return v;
@@ -28,5 +34,15 @@ public class Agencia {
         }
 
         throw new RuntimeException();
+    }
+
+    private Vehiculo encontrarVehiculo(Vehiculo vehiculo) {
+        for(Vehiculo v : vehiculos) {
+            if ( v.sos(vehiculo) ) {
+                return v;
+            }
+        }
+
+        return null;
     }
 }
