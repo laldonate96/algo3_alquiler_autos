@@ -34,7 +34,7 @@ public class AlquilerInmueblesTest
 
         Double valor = cabaña.alquilarPorDias(3);
 
-        assertEquals((3 * (4 * 1000)) , valor);
+        assertEquals((3 * (4 ^ 2)) , valor);
     }
 
     @Test
@@ -60,7 +60,7 @@ public class AlquilerInmueblesTest
         agencia.registrarAlquiler(cliente, departamento, 3);
         agencia.registrarAlquiler(cliente, cabaña, 3);
 
-        Double precioEsperado = Double.valueOf((60 * 3) + (3 * (4 * 1000)));
+        Double precioEsperado = Double.valueOf((60 * 3) + (3 * (4 ^ 2)));
 
         Double precioObtenido = agencia.calcularAlquilerParaCliente(cliente);
 
@@ -85,7 +85,7 @@ public class AlquilerInmueblesTest
         agencia.registrarAlquiler(cliente2, cabaña, 3);
         agencia.registrarAlquiler(cliente2, cabaña, 3);
 
-        Double precioEsperado = Double.valueOf(((60 * 3) * 2) + ((3 * (4 * 1000)) * 3));
+        Double precioEsperado = Double.valueOf(((60 * 3) * 2) + ((3 * (4 ^ 2)) * 3));
 
         Double precioObtenido = agencia.calcularAlquilerTotal();
 
