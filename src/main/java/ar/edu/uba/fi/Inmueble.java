@@ -8,8 +8,8 @@ public abstract class Inmueble implements Alquilable{
     };
 
     @Override
-    public boolean esIgualA(Alquilable unVehiculo){
-        return unVehiculo.tieneMismoIdentificador(this.direccion);
+    public boolean esIgualA(Alquilable unAlquilable){
+        return unAlquilable.tieneMismoIdentificador(this.direccion);
     }
     @Override
     public boolean tieneMismoIdentificador(String direccion){
