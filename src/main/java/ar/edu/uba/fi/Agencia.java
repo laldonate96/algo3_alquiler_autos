@@ -3,18 +3,18 @@ package ar.edu.uba.fi;
 import java.util.ArrayList;
 
 public class Agencia {
-    private ArrayList<Vehiculo> vehiculos = new ArrayList<Vehiculo>();
+    private ArrayList<Alquilable> alquilables = new ArrayList<Alquilable>();
     private ArrayList<Cliente> clientes = new ArrayList<Cliente>();
 
-    public void registrarVehiculo(Vehiculo unVehiculo) {
-        for(Vehiculo vehiculo: vehiculos){
-            if(vehiculo.esIgualA(unVehiculo)){
-                throw new VehiculoYaRegistradoException();
+    public void registrarAlquilable(Alquilable unAlquilable) {
+        for(Alquilable alquilable: alquilables){
+            if(alquilable.esIgualA(unAlquilable)){
+                throw new AlquilableYaRegistradoException();
             }
         }
-        vehiculos.add(unVehiculo);
+        alquilables.add(unAlquilable);
     }
-
+ 
     public void registrarCliente(Cliente cliente) {
         clientes.add(cliente);
     }
@@ -28,20 +28,20 @@ public class Agencia {
         throw new ClienteNoRegistradoException();
     }
 
-    public void registrarAlquiler(Cliente unCliente, Vehiculo unVehiculo, int dias) {
+    public void registrarAlquiler(Cliente unCliente, Alquilable unAlquilable, int dias) {
         Cliente cliente = buscarCliente(unCliente);
-        Vehiculo vehiculo = buscarVehiculo(unVehiculo);
+        Alquilable alquilable = buscarAlquilable(unAlquilable);
 
-        cliente.registrarAlquiler(vehiculo, dias);
+        cliente.registrarAlquiler(alquilable, dias);
     }
 
-    private Vehiculo buscarVehiculo(Vehiculo unVehiculo) {
-        for(Vehiculo vehiculo: vehiculos){
-            if(vehiculo.esIgualA(unVehiculo)){
-                return vehiculo;
+    private Alquilable buscarAlquilable(Alquilable unAlquilable) {
+        for(Alquilable alquilable: alquilables){
+            if(alquilable.esIgualA(unAlquilable)){
+                return alquilable;
             }
         }
-        throw new VehiculoNoRegistradoException();
+        throw new AlquilableNoRegistradoException();
     }
 
     private Cliente buscarCliente(Cliente unCliente) {

@@ -69,9 +69,9 @@ public class AlquilerVehiculosTest
         Agencia agencia = new Agencia();
         Microbus microbus = new Microbus("abc123");
         Camion camion = new Camion("abc123");
-        agencia.registrarVehiculo(microbus);
+        agencia.registrarAlquilable(microbus);
 
-        assertThrows(VehiculoYaRegistradoException.class, () -> {agencia.registrarVehiculo(camion);});
+        assertThrows(AlquilableYaRegistradoException.class, () -> {agencia.registrarAlquilable(camion);});
     }
 
     @Test
@@ -81,8 +81,8 @@ public class AlquilerVehiculosTest
         Camion camion = new Camion("abc1234");
         Cliente cliente = new Cliente("Diego");
 
-        agencia.registrarVehiculo(microbus);
-        agencia.registrarVehiculo(camion);
+        agencia.registrarAlquilable(microbus);
+        agencia.registrarAlquilable(camion);
         agencia.registrarCliente(cliente);
         agencia.registrarAlquiler(cliente, microbus, 3);
         agencia.registrarAlquiler(cliente, camion, 3);
@@ -102,8 +102,8 @@ public class AlquilerVehiculosTest
         Cliente cliente = new Cliente("Diego");
         Cliente cliente2 = new Cliente("Santi");
 
-        agencia.registrarVehiculo(microbus);
-        agencia.registrarVehiculo(camion);
+        agencia.registrarAlquilable(microbus);
+        agencia.registrarAlquilable(camion);
         agencia.registrarCliente(cliente);
         agencia.registrarCliente(cliente2);
         agencia.registrarAlquiler(cliente, microbus, 3);
