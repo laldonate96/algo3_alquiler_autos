@@ -9,6 +9,6 @@ public class Cabaña extends Inmueble {
     }
 
     public Double alquilarPorDias(int dias) {
-        return (double) (dias * (inquilinos * 1000));
+        return (double) (dias * (inquilinos ^ 2));
     }
 }
