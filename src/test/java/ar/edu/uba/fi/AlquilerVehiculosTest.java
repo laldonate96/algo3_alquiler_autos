@@ -1,5 +1,12 @@
 package ar.edu.uba.fi;
 
+import ar.edu.uba.fi.categorias.CategoriaNormal;
+import ar.edu.uba.fi.categorias.CategoriaPremium;
+import ar.edu.uba.fi.excepciones.VehiculoYaRegistradoException;
+import ar.edu.uba.fi.vehiculos.Camion;
+import ar.edu.uba.fi.vehiculos.Coche;
+import ar.edu.uba.fi.vehiculos.Furgoneta;
+import ar.edu.uba.fi.vehiculos.Microbus;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -12,7 +19,7 @@ public class AlquilerVehiculosTest
 {
     @Test
     public void test01AlAlquilarUnAutoPor3DiasElPrecioEsElCorrecto() {
-        Coche coche = new Coche("abc123", 4, new CategoriaNormal(), new SinBlindaje());
+        Coche coche = new Coche("abc123", 4, new CategoriaNormal(), "no blindado");
 
         Double valor = coche.alquilarPorDias(3);
 
@@ -21,7 +28,7 @@ public class AlquilerVehiculosTest
 
     @Test
     public void test02AlAlquilarUnAutoPremiumPor3DiasElPrecioEsElCorrecto() {
-        Coche coche = new Coche("abc123", 4, new CategoriaPremium(), new SinBlindaje());
+        Coche coche = new Coche("abc123", 4, new CategoriaPremium(), "no blindado");
 
         Double valor = coche.alquilarPorDias(3);
 
@@ -30,7 +37,7 @@ public class AlquilerVehiculosTest
 
     @Test
     public void test03AlAlquilarUnAutoBlindadoPor3DiasElPrecioEsElCorrecto() {
-        Coche coche = new Coche("abc123", 4, new CategoriaNormal(), new Blindado());
+        Coche coche = new Coche("abc123", 4, new CategoriaNormal(), "blindado");
 
         Double valor = coche.alquilarPorDias(3);
 

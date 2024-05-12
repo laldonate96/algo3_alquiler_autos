@@ -1,4 +1,4 @@
-package ar.edu.uba.fi;
+package ar.edu.uba.fi.vehiculos;
 
 public abstract class Vehiculo {
     protected String patente;

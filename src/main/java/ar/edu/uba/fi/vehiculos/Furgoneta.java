@@ -1,4 +1,4 @@
-package ar.edu.uba.fi;
+package ar.edu.uba.fi.vehiculos;
 
 public class Furgoneta extends Vehiculo {
     private final double pma;

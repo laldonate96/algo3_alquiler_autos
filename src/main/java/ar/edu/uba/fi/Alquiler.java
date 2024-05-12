@@ -1,5 +1,7 @@
 package ar.edu.uba.fi;
 
+import ar.edu.uba.fi.vehiculos.Vehiculo;
+
 public class Alquiler {
 
 

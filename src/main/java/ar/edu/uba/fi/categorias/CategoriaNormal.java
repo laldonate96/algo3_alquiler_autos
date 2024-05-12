@@ -1,4 +1,4 @@
-package ar.edu.uba.fi;
+package ar.edu.uba.fi.categorias;
 
 public class CategoriaNormal implements Categoria {
     @Override

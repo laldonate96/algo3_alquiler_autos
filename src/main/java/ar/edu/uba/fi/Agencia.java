@@ -1,5 +1,10 @@
 package ar.edu.uba.fi;
 
+import ar.edu.uba.fi.excepciones.ClienteNoRegistradoException;
+import ar.edu.uba.fi.excepciones.VehiculoNoRegistradoException;
+import ar.edu.uba.fi.excepciones.VehiculoYaRegistradoException;
+import ar.edu.uba.fi.vehiculos.Vehiculo;
+
 import java.util.ArrayList;
 
 public class Agencia {

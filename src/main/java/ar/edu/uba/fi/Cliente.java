@@ -1,7 +1,8 @@
 package ar.edu.uba.fi;
 
+import ar.edu.uba.fi.vehiculos.Vehiculo;
+
 import java.util.ArrayList;
-import java.util.List;
 
 public class Cliente {
     private final String nombre;
