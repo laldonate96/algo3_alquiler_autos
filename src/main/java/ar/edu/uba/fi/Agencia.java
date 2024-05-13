@@ -12,10 +12,8 @@ public class Agencia {
     private ArrayList<Cliente> clientes = new ArrayList<Cliente>();
 
     public void registrarVehiculo(Vehiculo unVehiculo) {
-        for(Vehiculo vehiculo: vehiculos){
-            if(vehiculo.esIgualA(unVehiculo)){
-                throw new VehiculoYaRegistradoException();
-            }
+        if (this.vehiculos.stream().anyMatch(vehiculo -> vehiculo.esIgualA(unVehiculo))) {
+            throw new VehiculoYaRegistradoException();
         }
         vehiculos.add(unVehiculo);
     }
@@ -25,12 +23,11 @@ public class Agencia {
     }
 
     public Double calcularAlquilerParaCliente(Cliente unCliente) {
-        for (Cliente cliente: clientes){
-            if(cliente.esIgualA(unCliente)){
-                return cliente.calcularPrecioAlquileres();
-            }
-        }
-        throw new ClienteNoRegistradoException();
+        return clientes.stream()
+                .filter(cliente -> cliente.esIgualA(unCliente))
+                .findFirst()
+                .map(Cliente::calcularPrecioAlquileres)
+                .orElseThrow(ClienteNoRegistradoException::new);
     }
 
     public void registrarAlquiler(Cliente unCliente, Vehiculo unVehiculo, int dias) {
