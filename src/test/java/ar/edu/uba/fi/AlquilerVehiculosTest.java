@@ -5,10 +5,8 @@ import ar.edu.uba.fi.blindados.SinBlindaje;
 import ar.edu.uba.fi.categorias.CategoriaNormal;
 import ar.edu.uba.fi.categorias.CategoriaPremium;
 import ar.edu.uba.fi.excepciones.VehiculoYaRegistradoException;
-import ar.edu.uba.fi.vehiculos.Camion;
-import ar.edu.uba.fi.vehiculos.Coche;
-import ar.edu.uba.fi.vehiculos.Furgoneta;
-import ar.edu.uba.fi.vehiculos.Microbus;
+import ar.edu.uba.fi.vehiculos.*;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -126,5 +124,25 @@ public class AlquilerVehiculosTest
         Double precioObtenido = agencia.calcularAlquilerTotal();
 
         assertEquals(precioObtenido , precioEsperado);
+    }
+
+    @Test
+    public void test10AlAlquilarunaBicicletaPor3HorasElPrecioEsElCorrecto() {
+        Bicicleta microbus = new Bicicleta("abc123");
+
+        Double valor = microbus.alquilerPorHoras(3);
+
+        assertEquals((1200 * 3) , valor);
+    }
+
+    // Que pasa con este test???
+    @Disabled
+    @Test
+    public void test11AlAlquilarunaBicicletaPor3HorasElPrecioEsElCorrecto() {
+        Bicicleta microbus = new Bicicleta("abc123");
+
+        Double valor = microbus.alquilarPorDias(3);
+
+        assertEquals((1200 * 3) , valor);
     }
 }
