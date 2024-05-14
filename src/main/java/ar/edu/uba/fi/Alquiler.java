@@ -1,19 +1,17 @@
 package ar.edu.uba.fi;
 
-import ar.edu.uba.fi.vehiculos.Vehiculo;
-
 public class Alquiler {
 
 
-    private final Vehiculo vehiculo;
+    private final ProductosAgencia productosAgencia;
     private final int dias;
 
-    public Alquiler(Vehiculo vehiculo, int dias) {
-        this.vehiculo = vehiculo;
+    public Alquiler(ProductosAgencia productosAgencia, int dias) {
+        this.productosAgencia = productosAgencia;
         this.dias = dias;
     }
 
     public double calcularPrecio() {
-        return vehiculo.alquilarPorDias(dias);
+        return productosAgencia.alquilarPorDias(dias);
     }
 }

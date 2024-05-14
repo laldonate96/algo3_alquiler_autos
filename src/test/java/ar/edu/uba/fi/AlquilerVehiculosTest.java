@@ -4,7 +4,8 @@ import ar.edu.uba.fi.blindados.Blindado;
 import ar.edu.uba.fi.blindados.SinBlindaje;
 import ar.edu.uba.fi.categorias.CategoriaNormal;
 import ar.edu.uba.fi.categorias.CategoriaPremium;
-import ar.edu.uba.fi.excepciones.VehiculoYaRegistradoException;
+import ar.edu.uba.fi.excepciones.AlquilableYaRegistradoException;
+import ar.edu.uba.fi.inmuebles.Cabaña;
 import ar.edu.uba.fi.vehiculos.Camion;
 import ar.edu.uba.fi.vehiculos.Coche;
 import ar.edu.uba.fi.vehiculos.Furgoneta;
@@ -78,9 +79,9 @@ public class AlquilerVehiculosTest
         Agencia agencia = new Agencia();
         Microbus microbus = new Microbus("abc123");
         Camion camion = new Camion("abc123");
-        agencia.registrarVehiculo(microbus);
+        agencia.registrar(microbus);
 
-        assertThrows(VehiculoYaRegistradoException.class, () -> {agencia.registrarVehiculo(camion);});
+        assertThrows(AlquilableYaRegistradoException.class, () -> {agencia.registrar(camion);});
     }
 
     @Test
@@ -90,8 +91,8 @@ public class AlquilerVehiculosTest
         Camion camion = new Camion("abc1234");
         Cliente cliente = new Cliente("Diego");
 
-        agencia.registrarVehiculo(microbus);
-        agencia.registrarVehiculo(camion);
+        agencia.registrar(microbus);
+        agencia.registrar(camion);
         agencia.registrarCliente(cliente);
         agencia.registrarAlquiler(cliente, microbus, 3);
         agencia.registrarAlquiler(cliente, camion, 3);
@@ -111,8 +112,8 @@ public class AlquilerVehiculosTest
         Cliente cliente = new Cliente("Diego");
         Cliente cliente2 = new Cliente("Santi");
 
-        agencia.registrarVehiculo(microbus);
-        agencia.registrarVehiculo(camion);
+        agencia.registrar(microbus);
+        agencia.registrar(camion);
         agencia.registrarCliente(cliente);
         agencia.registrarCliente(cliente2);
         agencia.registrarAlquiler(cliente, microbus, 3);
@@ -127,4 +128,44 @@ public class AlquilerVehiculosTest
 
         assertEquals(precioObtenido , precioEsperado);
     }
+
+    @Test
+    public void test10AlComprarUnInmuebleElPrecioEsElEsperado() {
+        Cabaña cabaña = new Cabaña("Paseo Colon 850", 2);
+
+
+        Double precioEsperado = 100*100*1.2;
+
+        Double precioObtenido = cabaña.comprar();
+
+        assertEquals(precioObtenido , precioEsperado);
+    }
+
+    @Test
+    public void test11AlComprarUnVehiculoSeLanzaExcepcion() {
+        Camion camion = new Camion("abc1234");
+
+        assertThrows(RuntimeException.class, () -> {camion.comprar();});
+    }
+
+    @Test
+    public void test12AlManejarUnVehiculoElPrecioEsElEsperado() {
+        Camion camion = new Camion("abc1234");
+
+
+        Double precioEsperado = 10*10*1.1;
+
+        Double precioObtenido = camion.manejar();
+
+        assertEquals(precioObtenido , precioEsperado);
+    }
+
+    @Test
+    public void test13AlManejarUnInmuebleSeLanzaExcepcion() {
+        Cabaña cabaña = new Cabaña("Paseo Colon 850", 2);
+
+        assertThrows(RuntimeException.class, () -> {cabaña.manejar();});
+    }
+
+
 }

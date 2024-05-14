@@ -1,6 +1,8 @@
 package ar.edu.uba.fi.vehiculos;
 
-public abstract class Vehiculo {
+import ar.edu.uba.fi.ProductosAgencia;
+
+public abstract class Vehiculo implements ProductosAgencia {
     protected String patente;
 
     public Vehiculo(String patente) {
@@ -9,12 +11,22 @@ public abstract class Vehiculo {
 
     public abstract Double alquilarPorDias(int dias);
 
-    public boolean esIgualA(Vehiculo unVehiculo){
-        return unVehiculo.tieneMismaPatente(this.patente);
+    public boolean esIgualA(ProductosAgencia unProductosAgencia){
+        return unProductosAgencia.tieneMismoIdentificador(this.patente);
     }
 
-    private boolean tieneMismaPatente(String patente){
+    public boolean tieneMismoIdentificador(String patente){
         return (this.patente == patente);
+    }
+
+    @Override
+    public Double comprar(){
+        throw new RuntimeException("No vendemos vehiculos, solo alquilamos");
+    }
+
+    @Override
+    public Double manejar(){
+        return 10*10*1.1;
     }
 
 }

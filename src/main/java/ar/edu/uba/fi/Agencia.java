@@ -1,26 +1,20 @@
 package ar.edu.uba.fi;
 
-import ar.edu.uba.fi.excepciones.ClienteNoRegistradoException;
-import ar.edu.uba.fi.excepciones.VehiculoNoRegistradoException;
-import ar.edu.uba.fi.excepciones.VehiculoYaRegistradoException;
-import ar.edu.uba.fi.vehiculos.Vehiculo;
+import ar.edu.uba.fi.excepciones.*;
 
-import java.io.BufferedWriter;
-import java.io.FileWriter;
-import java.io.IOException;
 import java.util.ArrayList;
 
 public class Agencia {
-    private ArrayList<Vehiculo> vehiculos = new ArrayList<Vehiculo>();
+    private ArrayList<ProductosAgencia> productosAgencias = new ArrayList<ProductosAgencia>();
     private ArrayList<Cliente> clientes = new ArrayList<Cliente>();
 
-    public void registrarVehiculo(Vehiculo unVehiculo) {
-        for(Vehiculo vehiculo: vehiculos){
-            if(vehiculo.esIgualA(unVehiculo)){
-                throw new VehiculoYaRegistradoException();
+    public void registrar(ProductosAgencia unProductosAgencia) {
+        for(ProductosAgencia productosAgencia : productosAgencias){
+            if(productosAgencia.esIgualA(unProductosAgencia)){
+                throw new AlquilableYaRegistradoException();
             }
         }
-        vehiculos.add(unVehiculo);
+        productosAgencias.add(unProductosAgencia);
     }
 
     public void registrarCliente(Cliente cliente) {
@@ -36,20 +30,20 @@ public class Agencia {
         throw new ClienteNoRegistradoException();
     }
 
-    public void registrarAlquiler(Cliente unCliente, Vehiculo unVehiculo, int dias) {
+    public void registrarAlquiler(Cliente unCliente, ProductosAgencia unProductosAgencia, int dias) {
         Cliente cliente = buscarCliente(unCliente);
-        Vehiculo vehiculo = buscarVehiculo(unVehiculo);
+        ProductosAgencia productosAgencia = buscarAlquilable(unProductosAgencia);
 
-        cliente.registrarAlquiler(vehiculo, dias);
+        cliente.registrarAlquiler(productosAgencia, dias);
     }
 
-    private Vehiculo buscarVehiculo(Vehiculo unVehiculo) {
-        for(Vehiculo vehiculo: vehiculos){
-            if(vehiculo.esIgualA(unVehiculo)){
-                return vehiculo;
+    private ProductosAgencia buscarAlquilable(ProductosAgencia unProductosAgencia) {
+        for(ProductosAgencia productosAgencia : productosAgencias){
+            if(productosAgencia.esIgualA(unProductosAgencia)){
+                return productosAgencia;
             }
         }
-        throw new VehiculoNoRegistradoException();
+        throw new AlquilableNoRegistradoException();
     }
 
     private Cliente buscarCliente(Cliente unCliente) {

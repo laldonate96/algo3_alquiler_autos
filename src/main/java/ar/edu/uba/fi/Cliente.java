@@ -1,7 +1,5 @@
 package ar.edu.uba.fi;
 
-import ar.edu.uba.fi.vehiculos.Vehiculo;
-
 import java.util.ArrayList;
 
 public class Cliente {
@@ -12,8 +10,8 @@ public class Cliente {
         this.nombre = nombre;
     }
 
-    public void registrarAlquiler(Vehiculo vehiculo, int dias) {
-        alquileres.add(new Alquiler(vehiculo,dias));
+    public void registrarAlquiler(ProductosAgencia productosAgencia, int dias) {
+        alquileres.add(new Alquiler(productosAgencia,dias));
     }
 
     public Double calcularPrecioAlquileres() {
