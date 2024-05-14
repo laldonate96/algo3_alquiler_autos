@@ -31,12 +31,5 @@ public class Cliente {
     private boolean tieneNombre(String unNombre) {
         return (unNombre == nombre);
     }
-
-    public String getNombre() {
-        return  this.nombre;
-    }
-
-    public Alquiler obtenerUltimoAlquiler() {
-        return this.alquileres.get(this.alquileres.size() -1);
-    }
+    
 }

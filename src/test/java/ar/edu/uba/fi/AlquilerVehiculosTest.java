@@ -127,49 +127,4 @@ public class AlquilerVehiculosTest
 
         assertEquals(precioObtenido , precioEsperado);
     }
-
-    @Test
-    public void test10AlPedirFactuaASeGeneraUnTxt() {
-        Agencia agencia = new Agencia();
-        Microbus microbus = new Microbus("abc123");
-        Cliente diego = new Cliente("Diego");
-
-
-        agencia.registrarVehiculo(microbus);
-        agencia.registrarCliente(diego);
-        agencia.registrarAlquiler(diego, microbus, 3);
-
-        agencia.emitirFacturaA(diego);
-    }
-
-    @Test
-    public void test11AlPedirFactuaBSeGeneraUnTxt() {
-        Agencia agencia = new Agencia();
-        Microbus microbus = new Microbus("abc123");
-        Cliente diego = new Cliente("Diego");
-
-
-        agencia.registrarVehiculo(microbus);
-        agencia.registrarCliente(diego);
-        agencia.registrarAlquiler(diego, microbus, 3);
-
-        agencia.emitirFacturaB(diego);
-    }
-
-    @Test
-    public void test12AlPedirFactuaCSeGeneraUnTxt() {
-        Agencia agencia = new Agencia();
-        Microbus microbus = new Microbus("abc123");
-        Cliente diego = new Cliente("Diego");
-
-
-        agencia.registrarVehiculo(microbus);
-        agencia.registrarCliente(diego);
-        agencia.registrarAlquiler(diego, microbus, 3);
-
-        agencia.emitirFacturaC(diego);
-    }
-
-
-
 }
