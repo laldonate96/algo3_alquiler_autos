@@ -127,4 +127,29 @@ public class AlquilerVehiculosTest
 
         assertEquals(precioObtenido , precioEsperado);
     }
+
+    @Test
+    public void test10AlPagarElSegundoAlquilerElPrecioDeLosAlquilerestotalesBajan() {
+        Agencia agencia = new Agencia();
+        Microbus microbus = new Microbus("abc123");
+        Cliente cliente = new Cliente("Diego");
+
+
+        agencia.registrarVehiculo(microbus);
+        agencia.registrarCliente(cliente);
+        agencia.registrarAlquiler(cliente, microbus, 3);
+        agencia.registrarAlquiler(cliente, microbus, 2);
+
+
+        Double precioEsperadoPre = Double.valueOf(8500);
+        Double precioObtenidoPrePago = cliente.calcularPrecioAlquileres();
+
+        cliente.pagarAlquiler(2);
+
+        Double precioEsperadoPost = Double.valueOf(5000);
+        Double precioObtenidoPostPago = cliente.calcularPrecioAlquileres();
+
+        assertEquals(precioEsperadoPre,precioObtenidoPrePago);
+        assertEquals(precioObtenidoPostPago , precioEsperadoPost);
+    }
 }

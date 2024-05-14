@@ -7,9 +7,11 @@ import java.util.ArrayList;
 public class Cliente {
     private final String nombre;
     private ArrayList<Alquiler> alquileres = new ArrayList<>();
+    private TarjetaCredito tarjetaCredito;
 
     public Cliente(String nombre) {
         this.nombre = nombre;
+        this.tarjetaCredito = new TarjetaCredito("4576-nombre-000",100000);
     }
 
     public void registrarAlquiler(Vehiculo vehiculo, int dias) {
@@ -30,6 +32,13 @@ public class Cliente {
 
     private boolean tieneNombre(String unNombre) {
         return (unNombre == nombre);
+    }
+
+    public void pagarAlquiler(int numeroAlquiler){
+        Alquiler alquiler = this.alquileres.get(numeroAlquiler -1);
+        double saldoAPagar = alquiler.calcularPrecio();
+        this.tarjetaCredito.descontarSaldo(saldoAPagar);
+        this.alquileres.remove(alquiler);
     }
 
 }
