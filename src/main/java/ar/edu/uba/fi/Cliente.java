@@ -31,5 +31,5 @@ public class Cliente {
     private boolean tieneNombre(String unNombre) {
         return (unNombre == nombre);
     }
-    
+
 }

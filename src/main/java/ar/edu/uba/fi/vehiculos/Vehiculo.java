@@ -17,7 +17,4 @@ public abstract class Vehiculo {
         return (this.patente == patente);
     }
 
-    public String getPatente() {
-        return  this.patente;
-    }
 }
