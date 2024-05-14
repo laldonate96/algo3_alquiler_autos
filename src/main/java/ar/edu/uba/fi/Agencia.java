@@ -1,5 +1,13 @@
 package ar.edu.uba.fi;
 
+import ar.edu.uba.fi.excepciones.ClienteNoRegistradoException;
+import ar.edu.uba.fi.excepciones.VehiculoNoRegistradoException;
+import ar.edu.uba.fi.excepciones.VehiculoYaRegistradoException;
+import ar.edu.uba.fi.vehiculos.Vehiculo;
+
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 
 public class Agencia {
@@ -59,5 +67,75 @@ public class Agencia {
             suma += cliente.calcularPrecioAlquileres();
         }
         return suma;
+    }
+
+    public void emitirFacturaA(Cliente unCliente){
+        try {
+            String nombreArchivo = "facturaA.txt";
+            Cliente cliente = this.buscarCliente(unCliente);
+            Alquiler ultimoAlquiler = cliente.obtenerUltimoAlquiler();
+            BufferedWriter writer = new BufferedWriter(new FileWriter(nombreArchivo));
+            writer.write("************************************\n");
+            writer.write("      FACTURA A DE ALQUILER         \n");
+            writer.write("************************************\n");
+            writer.write("Cliente: " + cliente.getNombre() + "\n");
+            writer.write("************************************\n");
+            writer.write("DATOS DEL EMISOR: ALGO3 SRL\n");
+            writer.write("CUIL: 20-402130213-7\n");
+            writer.write("************************************\n");
+            writer.write("Vehículo alquilado: " + ultimoAlquiler.nombreDelVehiculo() + "\n");
+            writer.write("Días alquilados: " + ultimoAlquiler.dias() + "\n");
+            writer.write("************************************\n");
+            writer.write("TOTAL: $" + ultimoAlquiler.calcularPrecio() + "\n");
+            writer.write("************************************\n");
+            writer.close();
+            System.out.println("Factura generada correctamente en el archivo: " + nombreArchivo);
+        } catch (IOException e) {
+            System.err.println("Error al escribir en el archivo: " + e.getMessage());
+        }
+    }
+
+    public void emitirFacturaB(Cliente unCliente){
+        try {
+            String nombreArchivo = "facturaB.txt";
+            Cliente cliente = this.buscarCliente(unCliente);
+            Alquiler ultimoAlquiler = cliente.obtenerUltimoAlquiler();
+            BufferedWriter writer = new BufferedWriter(new FileWriter(nombreArchivo));
+            writer.write("************************************\n");
+            writer.write("      FACTURA B DE ALQUILER         \n");
+            writer.write("************************************\n");
+            writer.write("Cliente: " + cliente.getNombre() + "\n");
+            writer.write("************************************\n");
+            writer.write("Vehículo alquilado: " + ultimoAlquiler.nombreDelVehiculo() + "\n");
+            writer.write("Días alquilados: " + ultimoAlquiler.dias() + "\n");
+            writer.write("************************************\n");
+            writer.write("TOTAL: $" + ultimoAlquiler.calcularPrecio() + "\n");
+            writer.write("************************************\n");
+            writer.close();
+            System.out.println("Factura generada correctamente en el archivo: " + nombreArchivo);
+        } catch (IOException e) {
+            System.err.println("Error al escribir en el archivo: " + e.getMessage());
+        }
+    }
+
+    public void emitirFacturaC(Cliente unCliente){
+        try {
+            String nombreArchivo = "facturaC.txt";
+            Cliente cliente = this.buscarCliente(unCliente);
+            Alquiler ultimoAlquiler = cliente.obtenerUltimoAlquiler();
+            BufferedWriter writer = new BufferedWriter(new FileWriter(nombreArchivo));
+            writer.write("************************************\n");
+            writer.write("      FACTURA C DE ALQUILER         \n");
+            writer.write("************************************\n");
+            writer.write("Vehículo alquilado: " + ultimoAlquiler.nombreDelVehiculo() + "\n");
+            writer.write("Días alquilados: " + ultimoAlquiler.dias() + "\n");
+            writer.write("************************************\n");
+            writer.write("TOTAL: $" + ultimoAlquiler.calcularPrecio() + "\n");
+            writer.write("************************************\n");
+            writer.close();
+            System.out.println("Factura generada correctamente en el archivo: " + nombreArchivo);
+        } catch (IOException e) {
+            System.err.println("Error al escribir en el archivo: " + e.getMessage());
+        }
     }
 }

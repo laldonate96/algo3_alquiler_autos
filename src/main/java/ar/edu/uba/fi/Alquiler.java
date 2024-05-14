@@ -1,5 +1,7 @@
 package ar.edu.uba.fi;
 
+import ar.edu.uba.fi.vehiculos.Vehiculo;
+
 public class Alquiler {
 
 
@@ -13,5 +15,13 @@ public class Alquiler {
 
     public double calcularPrecio() {
         return vehiculo.alquilarPorDias(dias);
+    }
+
+    public String nombreDelVehiculo(){
+        return this.vehiculo.getPatente();
+    }
+
+    public int dias() {
+        return this.dias;
     }
 }

@@ -1,11 +1,12 @@
 package ar.edu.uba.fi;
 
+import ar.edu.uba.fi.vehiculos.Vehiculo;
+
 import java.util.ArrayList;
-import java.util.List;
 
 public class Cliente {
     private final String nombre;
-    private ArrayList<Alquiler> alquileres = new ArrayList<Alquiler>();
+    private ArrayList<Alquiler> alquileres = new ArrayList<>();
 
     public Cliente(String nombre) {
         this.nombre = nombre;
@@ -29,5 +30,13 @@ public class Cliente {
 
     private boolean tieneNombre(String unNombre) {
         return (unNombre == nombre);
+    }
+
+    public String getNombre() {
+        return  this.nombre;
+    }
+
+    public Alquiler obtenerUltimoAlquiler() {
+        return this.alquileres.get(this.alquileres.size() -1);
     }
 }

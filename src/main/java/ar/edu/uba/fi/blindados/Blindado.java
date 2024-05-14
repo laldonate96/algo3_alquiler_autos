@@ -1,4 +1,4 @@
-package ar.edu.uba.fi;
+package ar.edu.uba.fi.blindados;
 
 public class Blindado implements Blindaje {
     @Override

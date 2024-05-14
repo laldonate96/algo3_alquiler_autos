@@ -1,4 +1,4 @@
-package ar.edu.uba.fi;
+package ar.edu.uba.fi.vehiculos;
 
 public abstract class Vehiculo {
     protected String patente;
@@ -15,5 +15,9 @@ public abstract class Vehiculo {
 
     private boolean tieneMismaPatente(String patente){
         return (this.patente == patente);
+    }
+
+    public String getPatente() {
+        return  this.patente;
     }
 }

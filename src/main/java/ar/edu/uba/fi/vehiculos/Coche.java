@@ -1,4 +1,7 @@
-package ar.edu.uba.fi;
+package ar.edu.uba.fi.vehiculos;
+
+import ar.edu.uba.fi.blindados.Blindaje;
+import ar.edu.uba.fi.categorias.Categoria;
 
 public class Coche extends Vehiculo {
 

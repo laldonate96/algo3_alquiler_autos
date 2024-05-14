@@ -1,5 +1,14 @@
 package ar.edu.uba.fi;
 
+import ar.edu.uba.fi.blindados.Blindado;
+import ar.edu.uba.fi.blindados.SinBlindaje;
+import ar.edu.uba.fi.categorias.CategoriaNormal;
+import ar.edu.uba.fi.categorias.CategoriaPremium;
+import ar.edu.uba.fi.excepciones.VehiculoYaRegistradoException;
+import ar.edu.uba.fi.vehiculos.Camion;
+import ar.edu.uba.fi.vehiculos.Coche;
+import ar.edu.uba.fi.vehiculos.Furgoneta;
+import ar.edu.uba.fi.vehiculos.Microbus;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -118,6 +127,49 @@ public class AlquilerVehiculosTest
 
         assertEquals(precioObtenido , precioEsperado);
     }
+
+    @Test
+    public void test10AlPedirFactuaASeGeneraUnTxt() {
+        Agencia agencia = new Agencia();
+        Microbus microbus = new Microbus("abc123");
+        Cliente diego = new Cliente("Diego");
+
+
+        agencia.registrarVehiculo(microbus);
+        agencia.registrarCliente(diego);
+        agencia.registrarAlquiler(diego, microbus, 3);
+
+        agencia.emitirFacturaA(diego);
+    }
+
+    @Test
+    public void test11AlPedirFactuaBSeGeneraUnTxt() {
+        Agencia agencia = new Agencia();
+        Microbus microbus = new Microbus("abc123");
+        Cliente diego = new Cliente("Diego");
+
+
+        agencia.registrarVehiculo(microbus);
+        agencia.registrarCliente(diego);
+        agencia.registrarAlquiler(diego, microbus, 3);
+
+        agencia.emitirFacturaB(diego);
+    }
+
+    @Test
+    public void test12AlPedirFactuaCSeGeneraUnTxt() {
+        Agencia agencia = new Agencia();
+        Microbus microbus = new Microbus("abc123");
+        Cliente diego = new Cliente("Diego");
+
+
+        agencia.registrarVehiculo(microbus);
+        agencia.registrarCliente(diego);
+        agencia.registrarAlquiler(diego, microbus, 3);
+
+        agencia.emitirFacturaC(diego);
+    }
+
 
 
 }
