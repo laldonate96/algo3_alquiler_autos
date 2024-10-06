@@ -5,6 +5,8 @@ import ar.edu.uba.fi.blindados.SinBlindaje;
 import ar.edu.uba.fi.categorias.CategoriaNormal;
 import ar.edu.uba.fi.categorias.CategoriaPremium;
 import ar.edu.uba.fi.excepciones.VehiculoYaRegistradoException;
+import ar.edu.uba.fi.pagos.MetodoDePago;
+import ar.edu.uba.fi.pagos.TarjetaCredito;
 import ar.edu.uba.fi.vehiculos.Camion;
 import ar.edu.uba.fi.vehiculos.Coche;
 import ar.edu.uba.fi.vehiculos.Furgoneta;
@@ -132,7 +134,8 @@ public class AlquilerVehiculosTest
     public void test10AlPagarElSegundoAlquilerElPrecioDeLosAlquilerestotalesBajan() {
         Agencia agencia = new Agencia();
         Microbus microbus = new Microbus("abc123");
-        Cliente cliente = new Cliente("Diego");
+        MetodoDePago metodoDePago = new TarjetaCredito("1234567", 15000);
+        Cliente cliente = new Cliente("Diego", metodoDePago);
 
 
         agencia.registrarVehiculo(microbus);

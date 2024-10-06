@@ -1,8 +1,8 @@
-package ar.edu.uba.fi;
+package ar.edu.uba.fi.pagos;
 
 import ar.edu.uba.fi.excepciones.SaldoInsuficienteError;
 
-public class TarjetaCredito {
+public class TarjetaCredito implements MetodoDePago {
     private String cbu;
     private int saldo;
 
@@ -16,5 +16,10 @@ public class TarjetaCredito {
             throw new SaldoInsuficienteError();
         }
         this.saldo -= monto;
+    }
+
+    @Override
+    public void pagar(Double monto) {
+        descontarSaldo(monto);
     }
 }
