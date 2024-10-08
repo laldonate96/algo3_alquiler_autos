@@ -3,19 +3,14 @@ package ar.edu.uba.fi;
 import ar.edu.uba.fi.excepciones.ClienteNoRegistradoException;
 import ar.edu.uba.fi.excepciones.VehiculoNoRegistradoException;
 import ar.edu.uba.fi.excepciones.VehiculoYaRegistradoException;
-import ar.edu.uba.fi.facturador.FacturadorA;
 import ar.edu.uba.fi.facturador.Facturador;
 import ar.edu.uba.fi.vehiculos.Vehiculo;
 
-import java.io.BufferedWriter;
-import java.io.FileWriter;
-import java.io.IOException;
 import java.util.ArrayList;
 
 public class Agencia {
     private ArrayList<Vehiculo> vehiculos = new ArrayList<Vehiculo>();
     private ArrayList<Cliente> clientes = new ArrayList<Cliente>();
-    private Facturador facturador = new FacturadorA();
 
     public void registrarVehiculo(Vehiculo unVehiculo) {
         for(Vehiculo vehiculo: vehiculos){
