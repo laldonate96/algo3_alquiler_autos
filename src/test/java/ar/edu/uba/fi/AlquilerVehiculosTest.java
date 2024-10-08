@@ -9,6 +9,10 @@ import ar.edu.uba.fi.vehiculos.Camion;
 import ar.edu.uba.fi.vehiculos.Coche;
 import ar.edu.uba.fi.vehiculos.Furgoneta;
 import ar.edu.uba.fi.vehiculos.Microbus;
+import ar.edu.uba.fi.facturador.FacturadorA;
+import ar.edu.uba.fi.facturador.FacturadorB;
+import ar.edu.uba.fi.facturador.FacturadorC;
+import ar.edu.uba.fi.facturador.Facturador;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -133,13 +137,14 @@ public class AlquilerVehiculosTest
         Agencia agencia = new Agencia();
         Microbus microbus = new Microbus("abc123");
         Cliente diego = new Cliente("Diego");
+        Facturador facturador = new FacturadorA();
 
 
         agencia.registrarVehiculo(microbus);
         agencia.registrarCliente(diego);
         agencia.registrarAlquiler(diego, microbus, 3);
 
-        agencia.emitirFacturaA(diego);
+        agencia.emitirFactura(diego, facturador);
     }
 
     @Test
@@ -147,13 +152,14 @@ public class AlquilerVehiculosTest
         Agencia agencia = new Agencia();
         Microbus microbus = new Microbus("abc123");
         Cliente diego = new Cliente("Diego");
+        Facturador facturador = new FacturadorB();
 
 
         agencia.registrarVehiculo(microbus);
         agencia.registrarCliente(diego);
         agencia.registrarAlquiler(diego, microbus, 3);
 
-        agencia.emitirFacturaB(diego);
+        agencia.emitirFactura(diego, facturador);
     }
 
     @Test
@@ -161,13 +167,14 @@ public class AlquilerVehiculosTest
         Agencia agencia = new Agencia();
         Microbus microbus = new Microbus("abc123");
         Cliente diego = new Cliente("Diego");
+        Facturador facturador = new FacturadorC();
 
 
         agencia.registrarVehiculo(microbus);
         agencia.registrarCliente(diego);
         agencia.registrarAlquiler(diego, microbus, 3);
 
-        agencia.emitirFacturaC(diego);
+        agencia.emitirFactura(diego, facturador);
     }
 
 
