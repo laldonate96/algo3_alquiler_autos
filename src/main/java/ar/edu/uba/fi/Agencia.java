@@ -72,7 +72,7 @@ public class Agencia {
         return suma;
     }
 
-    public void emitirFactura(Cliente unCliente, Facturador factura){
+    public void emitirFactura(Cliente unCliente, Facturador facturador){
         Cliente cliente = this.buscarCliente(unCliente);
         Alquiler ultimoAlquiler = cliente.obtenerUltimoAlquiler();
         factura.emitirFactura(unCliente, ultimoAlquiler);
