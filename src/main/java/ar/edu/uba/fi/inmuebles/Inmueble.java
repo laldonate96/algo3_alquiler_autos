@@ -2,7 +2,7 @@ package ar.edu.uba.fi.inmuebles;
 
 import ar.edu.uba.fi.ProductosAgencia;
 
-public abstract class Inmueble implements ProductosAgencia {
+public abstract class Inmueble implements ProductosAgencia, Comprable {
     protected String direccion;
 
     public Inmueble(String direccion) {
@@ -21,10 +21,5 @@ public abstract class Inmueble implements ProductosAgencia {
     @Override
     public Double comprar(){
         return 100*100*1.2;
-    }
-
-    @Override
-    public Double manejar(){
-        throw new RuntimeException("Un inmueble no se puede manejar!");
     }
 }

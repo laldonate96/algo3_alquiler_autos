@@ -142,13 +142,6 @@ public class AlquilerVehiculosTest
     }
 
     @Test
-    public void test11AlComprarUnVehiculoSeLanzaExcepcion() {
-        Camion camion = new Camion("abc1234");
-
-        assertThrows(RuntimeException.class, () -> {camion.comprar();});
-    }
-
-    @Test
     public void test12AlManejarUnVehiculoElPrecioEsElEsperado() {
         Camion camion = new Camion("abc1234");
 
@@ -158,13 +151,6 @@ public class AlquilerVehiculosTest
         Double precioObtenido = camion.manejar();
 
         assertEquals(precioObtenido , precioEsperado);
-    }
-
-    @Test
-    public void test13AlManejarUnInmuebleSeLanzaExcepcion() {
-        Cabaña cabaña = new Cabaña("Paseo Colon 850", 2);
-
-        assertThrows(RuntimeException.class, () -> {cabaña.manejar();});
     }
 
 
