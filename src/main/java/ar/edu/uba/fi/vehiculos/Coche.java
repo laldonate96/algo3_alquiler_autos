@@ -2,6 +2,7 @@ package ar.edu.uba.fi.vehiculos;
 
 import ar.edu.uba.fi.blindados.Blindaje;
 import ar.edu.uba.fi.categorias.Categoria;
+import ar.edu.uba.fi.tiempo.Tiempo;
 
 public class Coche extends Vehiculo {
 
@@ -16,7 +17,7 @@ public class Coche extends Vehiculo {
         this.blindaje = blindaje;
     }
 
-    public Double alquilarPorDias(int dias) {
-        return blindaje.modificarPrecio((500 + categoria.precioPlazas(plazas)) * dias);
+    public Double alquilar(Tiempo tiempo) {
+        return blindaje.modificarPrecio((500 + categoria.precioPlazas(plazas)) * tiempo.convertirADias());
     }
 }

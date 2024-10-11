@@ -1,5 +1,7 @@
 package ar.edu.uba.fi.vehiculos;
 
+import ar.edu.uba.fi.tiempo.Tiempo;
+
 public class Furgoneta extends Vehiculo {
     private final double pma;
 
@@ -8,7 +10,7 @@ public class Furgoneta extends Vehiculo {
         this.pma = pma;
     }
 
-    public Double alquilarPorDias(int dias) {
-       return ((300 * pma ) + 500 ) * dias;
+    public Double alquilar(Tiempo tiempo) {
+       return ((300 * pma ) + 500 ) * tiempo.convertirADias();
     }
 }

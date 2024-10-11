@@ -3,11 +3,9 @@ package ar.edu.uba.fi;
 import ar.edu.uba.fi.excepciones.ClienteNoRegistradoException;
 import ar.edu.uba.fi.excepciones.VehiculoNoRegistradoException;
 import ar.edu.uba.fi.excepciones.VehiculoYaRegistradoException;
+import ar.edu.uba.fi.tiempo.Tiempo;
 import ar.edu.uba.fi.vehiculos.Vehiculo;
 
-import java.io.BufferedWriter;
-import java.io.FileWriter;
-import java.io.IOException;
 import java.util.ArrayList;
 
 public class Agencia {
@@ -36,11 +34,11 @@ public class Agencia {
         throw new ClienteNoRegistradoException();
     }
 
-    public void registrarAlquiler(Cliente unCliente, Vehiculo unVehiculo, int dias) {
+    public void registrarAlquiler(Cliente unCliente, Vehiculo unVehiculo, Tiempo tiempo) {
         Cliente cliente = buscarCliente(unCliente);
         Vehiculo vehiculo = buscarVehiculo(unVehiculo);
 
-        cliente.registrarAlquiler(vehiculo, dias);
+        cliente.registrarAlquiler(vehiculo, tiempo);
     }
 
     private Vehiculo buscarVehiculo(Vehiculo unVehiculo) {

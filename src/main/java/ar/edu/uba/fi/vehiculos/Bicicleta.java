@@ -1,6 +1,6 @@
 package ar.edu.uba.fi.vehiculos;
 
-import ar.edu.uba.fi.excepciones.BicicletaNoSeAlquilaPorDiasException;
+import ar.edu.uba.fi.tiempo.Tiempo;
 
 public class Bicicleta extends Vehiculo {
 
@@ -8,13 +8,7 @@ public class Bicicleta extends Vehiculo {
         super(patente);
     }
 
-    @Override
-    public Double alquilarPorDias(int dias) {
-        throw new BicicletaNoSeAlquilaPorDiasException();
-    }
-
-
-    public Double alquilerPorHoras(int horas) {
-        return (double) (horas * 1200);
+    public Double alquilar(Tiempo tiempo) {
+        return (double) (tiempo.convertirAHoras() * 1200);
     }
 }
